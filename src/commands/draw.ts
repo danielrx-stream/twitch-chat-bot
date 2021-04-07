@@ -6,16 +6,15 @@ import {exec} from 'shelljs';
 
 let interval: NodeJS.Timeout | undefined;
 
-export const handler = async({userData, args, say, emotes, dataDir, channel}: MessageAndData) => {
-    console.log('🚀 ~ file: draw.ts ~ line 123 ~ handler ~ emotes', emotes);
+export const handler = async({userData, args, say, emotes, channel}: MessageAndData) => {
     const [shape, ...rest] = args;
+    const dataDir = '~/twitch/website/site/assets/emotes';
     const ts = Date.now();
     let fileType;
     let shapeToAdd;
     switch(shape) {
         case 'emote': {
             const [x, y, emote] = rest as [string, string, string];
-            console.log('🚀 ~ file: draw.ts ~ line 17 ~ handler ~ x, y, emote', x, y, emote);
             const {emoteLink, hashOf} = getEmote(emote, emotes);
             let files = glob.sync(`${dataDir}/${hashOf}.*`);
             if(files.length === 0) {
