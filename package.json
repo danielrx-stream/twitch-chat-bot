@@ -6,7 +6,7 @@
   "scripts": {
     "start:canvas-server": "cd server && nodemon index.ts",
     "start:bot": "cd src && nodemon index.ts",
-    "start:poll": "nodemon server/api-polling.ts"
+    "start:poll": "nodemon server/api-polling.ts -i server/index.ts"
   },
   "author": "",
   "license": "ISC",
