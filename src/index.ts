@@ -66,7 +66,10 @@ const onMessageHandler = async(target: string, context: any, msg: string, self: 
 
 
         const x: MessageAndData =  {userData, say, timeout, args, client, emotes, ts, channel, dataDir, message: new Message(msg), api, channelId};
-        if(!commands.includes(name)) {
+        if(commandName === '') {
+
+        }
+        else if(!commands.includes(name)) {
             say(`Sorry but ${commandName} isn't a valid command`);
         } else {
             let success = true;
